@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – Prompt Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --slate:   #1C3738;
+      --slate2:  #243f40;
+      --slate3:  #2d4f51;
+      --mist:    #8BAAAD;
+      --frost:   #F4FFF8;
+      --amber:   #f5a623;
+      --green:   #6ee7b7;
+      --red:     #f87171;
+      --border:  rgba(139,170,173,0.2);
+      --border2: rgba(139,170,173,0.4);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--slate);
+      color: var(--frost);
+      line-height: 1.75;
+      padding-bottom: 80px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--slate2);
+      border-bottom: 1px solid var(--border);
+      padding: 52px 24px 44px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(139,170,173,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .header-star {
+      font-size: 2.5rem;
+      color: var(--amber);
+      display: block;
+      margin-bottom: 16px;
+      animation: pulse 3s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+
+    header h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    header h1 span { color: var(--amber); }
+    header p { font-size: 0.95rem; color: var(--mist); margin-bottom: 4px; }
+    .updated-badge {
+      display: inline-block;
+      background: rgba(139,170,173,0.12);
+      border: 1px solid var(--border2);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.78rem;
+      color: var(--mist);
+      margin-top: 12px;
+    }
+
+    /* ── SUMMARY CARD ── */
+    .summary-card {
+      max-width: 780px;
+      margin: -24px auto 0;
+      background: var(--slate3);
+      border: 1px solid var(--border2);
+      border-radius: 14px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+      padding: 24px 28px;
+      position: relative;
+      z-index: 2;
+    }
+    .summary-label {
+      display: inline-block;
+      background: var(--amber);
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .summary-card p { font-size: 0.93rem; color: var(--mist); }
+    .summary-card strong { color: var(--frost); }
+
+    /* ── MAIN ── */
+    main { max-width: 780px; margin: 36px auto; padding: 0 24px; }
+
+    .section {
+      background: var(--slate2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--frost);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2 .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: rgba(139,170,173,0.1);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    h3 { font-size: 0.9rem; font-weight: 700; color: var(--frost); margin: 16px 0 6px; }
+    h3:first-of-type { margin-top: 0; }
+
+    p { margin-bottom: 10px; font-size: 0.9rem; color: var(--mist); }
+    p:last-child { margin-bottom: 0; }
+
+    ul { padding-left: 18px; margin-bottom: 10px; }
+    ul li { margin-bottom: 6px; font-size: 0.9rem; color: var(--mist); }
+
+    a { color: var(--amber); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    strong { color: var(--frost); }
+
+    /* ── PLATFORM GRID ── */
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 10px;
+      margin: 14px 0;
+    }
+    .platform-card {
+      background: var(--slate3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+    .platform-card strong { display: block; font-size: 0.85rem; margin-bottom: 3px; }
+    .platform-card span { font-size: 0.75rem; color: var(--mist); }
+
+    /* ── WARNING BOX ── */
+    .warning-box {
+      background: rgba(245,166,35,0.08);
+      border-left: 3px solid var(--amber);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 12px 0;
+      font-size: 0.88rem;
+      color: var(--mist);
+    }
+    .warning-box strong { color: var(--amber); }
+
+    /* ── BADGE ── */
+    .badge {
+      display: inline-block;
+      background: var(--slate3);
+      border: 1px solid var(--border2);
+      color: var(--mist);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-right: 6px;
+      vertical-align: middle;
+      letter-spacing: 0.3px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* ── RIGHTS GRID ── */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .rights-item {
+      background: var(--slate3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+    .rights-item strong { display: block; font-size: 0.85rem; color: var(--amber); margin-bottom: 3px; }
+    .rights-item span { font-size: 0.78rem; color: var(--mist); }
+
+    /* ── ACCEPT BOX ── */
+    .accept-box {
+      background: rgba(110,231,183,0.07);
+      border-left: 3px solid var(--green);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 22px;
+      margin-top: 28px;
+      font-size: 0.9rem;
+      color: var(--mist);
+    }
+    .accept-box strong { color: var(--green); }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: rgba(139,170,173,0.5);
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
+      .summary-card, .section { padding: 18px; }
+      .rights-grid { grid-template-columns: 1fr; }
+      .platform-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="header-star">✦</span>
+  <h1>Privacy Policy<br><span>Prompt Portal</span></h1>
+  <p>Chrome Extension by Innov8Edge &nbsp;·&nbsp; Your AI Gateway</p>
+  <span class="updated-badge">Last Updated: March 2026</span>
+</header>
+
+<div class="summary-card">
+  <span class="summary-label">Quick Summary</span>
+  <p>
+    <strong>Prompt Portal stores everything locally on your device.</strong> Your prompts, categories, and GitHub credentials are saved only in your browser's encrypted local storage. No data is collected by Innov8Edge. When you use the GitHub backup feature, your prompt library is sent directly from your browser to GitHub using your personal access token — Innov8Edge never sees or touches it.
+  </p>
+</div>
+
+<main>
+
+  <!-- 1 -->
+  <div class="section">
+    <h2><span class="icon">📋</span> 1. Information We Collect</h2>
+    <p>Prompt Portal collects and stores the following information <strong>locally on your device only</strong>, using Chrome's encrypted <code>chrome.storage.local</code>:</p>
+    <ul>
+      <li><strong>Prompt Library</strong> — titles, bodies, categories, and order of all prompts you create</li>
+      <li><strong>Categories</strong> — the category names you define (Business, Education, Tech, and any custom ones)</li>
+      <li><strong>GitHub Credentials</strong> — your personal access token, repository name, and file path for backup sync</li>
+      <li><strong>Preferences</strong> — active category tab and other UI state</li>
+    </ul>
+    <p>We do <strong>not</strong> collect your name, email address, browsing history, or any data beyond what is listed above.</p>
+  </div>
+
+  <!-- 2 -->
+  <div class="section">
+    <h2><span class="icon">⚙️</span> 2. How We Use Your Information</h2>
+    <ul>
+      <li><strong>Prompt Library</strong> — displayed back to you within the extension for browsing, editing, and copying</li>
+      <li><strong>Copy to Clipboard</strong> — when you click Copy Prompt or a Launch button, the prompt body is written to your clipboard</li>
+      <li><strong>Launch Buttons</strong> — clicking a platform button opens that platform in a new tab. No prompt content is transmitted to Innov8Edge</li>
+      <li><strong>GitHub Backup</strong> — when you push or auto-save, your prompt library is sent directly to GitHub's API using your token. Innov8Edge has no involvement in this transfer</li>
+    </ul>
+  </div>
+
+  <!-- 3 -->
+  <div class="section">
+    <h2><span class="icon">🔗</span> 3. Third-Party Services</h2>
+    <p>Prompt Portal may communicate with the following external services. No data is sent without your action.</p>
+
+    <div class="platform-grid">
+      <div class="platform-card">
+        <strong>GitHub</strong>
+        <span>Stores your prompt library JSON file when you use the backup feature</span>
+      </div>
+      <div class="platform-card">
+        <strong>NotebookLM</strong>
+        <span>Opened in a new tab when you click the launch button</span>
+      </div>
+      <div class="platform-card">
+        <strong>ChatGPT</strong>
+        <span>Opened in a new tab when you click the launch button</span>
+      </div>
+      <div class="platform-card">
+        <strong>Claude</strong>
+        <span>Opened in a new tab when you click the launch button</span>
+      </div>
+      <div class="platform-card">
+        <strong>Gemini</strong>
+        <span>Opened in a new tab when you click the launch button</span>
+      </div>
+      <div class="platform-card">
+        <strong>Perplexity</strong>
+        <span>Opened in a new tab when you click the launch button</span>
+      </div>
+      <div class="platform-card">
+        <strong>Lovable</strong>
+        <span>Opened in a new tab when you click the launch button</span>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <strong>Note:</strong> When you click a Launch button, Prompt Portal copies the prompt to your clipboard and opens the platform in a new tab. Your prompt content is <strong>not</strong> automatically sent to any platform — you paste it manually. Each platform's own privacy policy governs what happens once you're on their site.
+    </div>
+
+    <h3>GitHub Privacy Policy</h3>
+    <p><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank">docs.github.com — GitHub Privacy Statement ↗</a></p>
+  </div>
+
+  <!-- 4 -->
+  <div class="section">
+    <h2><span class="icon">💾</span> 4. Data Storage</h2>
+
+    <h3>Local Storage Only</h3>
+    <p>All data is stored on your device using <code>chrome.storage.local</code> — Chrome's encrypted, sandboxed storage. This data does not leave your device except when you actively use the GitHub backup feature.</p>
+
+    <h3>GitHub Backup (Optional)</h3>
+    <p>If you configure GitHub backup, your prompt library is pushed to a repository of your choosing using your personal access token. This transfer goes directly from your browser to GitHub — Innov8Edge has no server involved in this process and never receives a copy.</p>
+
+    <h3>Auto-Push on Save</h3>
+    <p>When GitHub credentials are configured, Prompt Portal automatically pushes your library to GitHub each time you save, edit, delete, or import prompts. This happens silently in the background. You can disable it at any time by clearing your GitHub credentials in Settings.</p>
+
+    <h3>No Cloud Sync</h3>
+    <p>Prompt Portal does not operate its own servers and does not back up your data to any Innov8Edge-controlled service. Your prompts exist only on your device and optionally in your own GitHub repository.</p>
+  </div>
+
+  <!-- 5 -->
+  <div class="section">
+    <h2><span class="icon">🚫</span> 5. Data Sharing</h2>
+    <p><strong>We do not sell, rent, or share your data with any third parties.</strong></p>
+    <p>Data leaves your device only in these cases:</p>
+    <ul>
+      <li><strong>GitHub API</strong> — when you push your prompt library via the backup feature (manual or auto-push)</li>
+      <li><strong>Clipboard</strong> — prompt text is written to your local clipboard when you click Copy or a Launch button</li>
+    </ul>
+    <p>No analytics platforms, advertising networks, or Innov8Edge servers receive any data from this extension.</p>
+  </div>
+
+  <!-- 6 -->
+  <div class="section">
+    <h2><span class="icon">✅</span> 6. Your Rights</h2>
+    <div class="rights-grid">
+      <div class="rights-item">
+        <strong>View</strong>
+        <span>All prompts and categories are visible in the Library view</span>
+      </div>
+      <div class="rights-item">
+        <strong>Edit</strong>
+        <span>Update any prompt or category at any time</span>
+      </div>
+      <div class="rights-item">
+        <strong>Export</strong>
+        <span>Download your full library as a JSON file via Settings</span>
+      </div>
+      <div class="rights-item">
+        <strong>Delete</strong>
+        <span>Remove individual prompts or clear all data via Settings → Danger Zone</span>
+      </div>
+      <div class="rights-item">
+        <strong>GitHub Credentials</strong>
+        <span>Clear your token and repo settings at any time in Settings → GitHub Backup</span>
+      </div>
+      <div class="rights-item">
+        <strong>Uninstall</strong>
+        <span>Removing the extension from Chrome deletes all locally stored data automatically</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="section">
+    <h2><span class="icon">🔒</span> 7. Data Security</h2>
+    <ul>
+      <li>All GitHub communications use HTTPS encryption</li>
+      <li>GitHub credentials stored in Chrome's encrypted <code>chrome.storage.local</code></li>
+      <li>Local-first architecture — your data stays on your device by default</li>
+      <li>No server-side processing, logging, or analytics by Innov8Edge</li>
+      <li>The extension is sandboxed by Chrome and cannot access other extensions or browser data</li>
+    </ul>
+  </div>
+
+  <!-- 8 -->
+  <div class="section">
+    <h2><span class="icon">🛡️</span> 8. Permissions Explained</h2>
+    <ul>
+      <li><span class="badge">sidePanel</span> Display the extension as a side panel alongside any website</li>
+      <li><span class="badge">storage</span> Save prompts, categories, and GitHub credentials locally on your device</li>
+      <li><span class="badge">clipboardWrite</span> Copy prompt text to your clipboard when you click Copy or Launch</li>
+      <li><span class="badge">tabs</span> Open AI platforms (NotebookLM, ChatGPT, Claude, etc.) in new tabs</li>
+      <li><span class="badge">host_permissions</span> Communicate with GitHub's API for the backup feature</li>
+    </ul>
+    <p>We request only the minimum permissions necessary for core functionality.</p>
+  </div>
+
+  <!-- 9 -->
+  <div class="section">
+    <h2><span class="icon">👶</span> 9. Children's Privacy</h2>
+    <p>Prompt Portal is intended for professional use by adults. It is not directed at children under the age of 13. We do not knowingly collect data from children.</p>
+  </div>
+
+  <!-- 10 -->
+  <div class="section">
+    <h2><span class="icon">📝</span> 10. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy to reflect changes in functionality or legal requirements. The "Last Updated" date at the top of this page will be revised accordingly. Continued use of the extension after changes are posted constitutes your acceptance of the updated policy.</p>
+  </div>
+
+  <!-- 11 -->
+  <div class="section">
+    <h2><span class="icon">✉️</span> 11. Contact Us</h2>
+    <p>If you have questions about this Privacy Policy or your data, please contact:</p>
+    <ul>
+      <li><strong>Company:</strong> Innov8Edge</li>
+      <li><strong>Email:</strong> <a href="mailto:derrick@innov8edge.sbs">derrick@innov8edge.sbs</a></li>
+    </ul>
+  </div>
+
+  <div class="accept-box">
+    <strong>✦</strong> By installing and using Prompt Portal, you agree to this Privacy Policy. Your prompts stay yours — stored on your device, backed up to your own GitHub, never collected by us.
+  </div>
+
+  <div class="page-footer">
+    <p>&copy; 2026 Innov8Edge &nbsp;·&nbsp; Prompt Portal &nbsp;·&nbsp; Your AI Gateway &nbsp;·&nbsp; All rights reserved</p>
+  </div>
+
+</main>
+</body>
+</html>
